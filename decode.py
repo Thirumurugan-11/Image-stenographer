@@ -42,3 +42,6 @@ def decode(image_name):
 decoded_data = decode("encoded_image.png")
 
 print("[+] Decoded data:", decoded_data)
+
+if __name__ == "__main___":
+    decode()
