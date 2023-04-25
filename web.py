@@ -5,14 +5,17 @@ import pandas as pd
 import encode as en
 import decode as dc
 import time as t
+from datetime import datetime
+
+
 
 st.header("Image StenoGrapher")
 uploaded_file = st.file_uploader("Choose a image (PNG):)  ")
 sbop1 = st.sidebar.button("Encrypt ")
+sbop2 = st.sidebar.button("Decrypt ")
 #st.write("Enter your DATA to encrypt : ")
 
 if sbop1:
-    
     st.write("Enter your DATA to encrypt : ")
     scdata = st.text_input("Enter the NASA secrect brooooo ",key="data")
 
@@ -26,8 +29,21 @@ if sbop1:
         st.warning("Enter the secret message")
     encoded_image = en.encode(input_image,secret_data)
     cv2.imwrite(output_image, encoded_image)
-    t.sleep(75)
+    t.sleep(10)
     st.warning('Encoded Broo ', icon="✅")
+
+
+if sbop2:
+    start=datetime.now()
+    st.write("Decrpting your data ")
+    outtext = f"{uploaded_file.name}"
+    dctext = dc.decode(outtext)
+    print("[+] Decoded text",dctext.rstrip('\x00'))
+    #st.write("working")
+    fi = open("Decrpyted Text.txt","w")
+    fi.write(dctext.strip())
+    st.write("DECRPYTED SUCCESSFULLY")
+
 
 
 

@@ -37,11 +37,11 @@ def decode(image_name):
             break
     return decoded_data[:-5]
 
-
+'''
 # decode the secret data from the image
 decoded_data = decode("encoded_image.png")
 
-print("[+] Decoded data:", decoded_data)
+print("[+] Decoded data:", decoded_data)'''
 
 if __name__ == "__main___":
     decode()
